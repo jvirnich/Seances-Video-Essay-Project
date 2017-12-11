@@ -4,27 +4,32 @@
 </head>
 
 <body>
-    <video id="myVideo" height="400" width="400" autoplay onended="run();">   
+    <video id="myVideo" height="90%" width="90%" autoplay onended="run();">   
         <source id="ss"  src="" type='video/mp4'>
     </video>
 
     <script>
         var introVideos = ["http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4", "http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_5mb.mp4"];
         swap(introVideos); 
+        console.log(introVideos);
         var introVideo = introVideos[0]; 
-        var bodyVideos = ["http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_2mb.mp4"];
+        var bodyVideos = ["http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_2mb.mp4", "http://www.sample-videos.com/video/mp4/240/big_buck_bunny_240p_30mb.mp4", "http://mirrors.standaloneinstaller.com/video-sample/jellyfish-25-mbps-hd-hevc.mp4"];
         swap(bodyVideos); 
-        var videos = [introVideo] + bodyVideos; 
+        var videos = [introVideo].concat(bodyVideos); 
+        console.log(videos);
         video_count = 0;
         videoPlayer = document.getElementById("ss");        
         video=document.getElementById("myVideo");
-        videoPlayer.setAttribute("src",videos[video_count]);       
+        videoPlayer.setAttribute("src",videos[video_count]);
+        console.log(videos[video_count]);       
         video.play();
 
         function run(){
             video_count++;
             if (video_count == videos.length) video_count = 0;
-            videoPlayer.setAttribute("src",videos[video_count]);       
+            console.log(videos[video_count]);
+            videoPlayer.setAttribute("src",videos[video_count]);
+            video.load();       
             video.play();
        }
         
@@ -36,7 +41,9 @@
                 bodyVideos[i] = bodyVideos[rand]; 
                 bodyVideos[rand] = temp; 
             }
+        }
 
     </script>
 </body>
 </html>
+
