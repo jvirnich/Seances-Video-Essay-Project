@@ -5,21 +5,37 @@
 
 <body>
     <video id="myVideo" height="400" width="400" autoplay onended="run();">   
-        <source id="ss"  src="video/video1.mp4" type='video/mp4'>
+        <source id="ss"  src="" type='video/mp4'>
     </video>
 
     <script>
-        video_count =1;
+        var introVideos = ["http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4", "http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_5mb.mp4"];
+        swap(introVideos); 
+        var introVideo = introVideos[0]; 
+        var bodyVideos = ["http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_2mb.mp4"];
+        swap(bodyVideos); 
+        var videos = [introVideo] + bodyVideos; 
+        video_count = 0;
         videoPlayer = document.getElementById("ss");        
         video=document.getElementById("myVideo");
+        videoPlayer.setAttribute("src",videos[video_count]);       
+        video.play();
 
         function run(){
             video_count++;
-            if (video_count == 4) video_count = 1;
-            videoPlayer.setAttribute("src","video/video"+video_count+".mp4");       
+            if (video_count == videos.length) video_count = 0;
+            videoPlayer.setAttribute("src",videos[video_count]);       
             video.play();
-
        }
+        
+        function swap(bodyVideos) {
+            for (var i = 0; i < bodyVideos.length; i++) {
+                var rand = Math.random() * (bodyVideos.length - i);
+                rand = Math.floor(rand) + i;
+                var temp = bodyVideos[i]; 
+                bodyVideos[i] = bodyVideos[rand]; 
+                bodyVideos[rand] = temp; 
+            }
 
     </script>
 </body>
