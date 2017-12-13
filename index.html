@@ -4,46 +4,7 @@
 </head>
 
 <body>
-    <video id="myVideo" height="90%" width="90%" autoplay onended="run();">   
-        <source id="ss"  src="" type='video/MP4'>
-    </video>
-
-    <script>
-        var introVideos = ["https://drive.google.com/file/d/10Jts9QR6l2JYsERm7KMpXOet1m-S1mUY/preview", "http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_5mb.mp4"];
-        swap(introVideos); 
-        console.log(introVideos);
-        var introVideo = introVideos[0]; 
-        var bodyVideos = ["https://drive.google.com/file/d/1jCjO8Z8S1qxuphmoyfjziW19x7LcyA1R/preview", "http://www.sample-videos.com/video/mp4/240/big_buck_bunny_240p_30mb.mp4", "http://mirrors.standaloneinstaller.com/video-sample/jellyfish-25-mbps-hd-hevc.mp4"];
-        swap(bodyVideos); 
-        var videos = [introVideo].concat(bodyVideos); 
-        console.log(videos);
-        video_count = 0;
-        videoPlayer = document.getElementById("ss");        
-        video=document.getElementById("myVideo");
-        videoPlayer.setAttribute("src",videos[video_count]);
-        console.log(videos[video_count]);       
-        video.play();
-
-        function run(){
-            video_count++;
-            if (video_count == videos.length) video_count = 0;
-            console.log(videos[video_count]);
-            videoPlayer.setAttribute("src",videos[video_count]);
-            video.load();       
-            video.play();
-       }
-        
-        function swap(bodyVideos) {
-            for (var i = 0; i < bodyVideos.length; i++) {
-                var rand = Math.random() * (bodyVideos.length - i);
-                rand = Math.floor(rand) + i;
-                var temp = bodyVideos[i]; 
-                bodyVideos[i] = bodyVideos[rand]; 
-                bodyVideos[rand] = temp; 
-            }
-        }
-
-    </script>
+<iframe src="https://drive.google.com/file/d/1jCjO8Z8S1qxuphmoyfjziW19x7LcyA1R/preview" width="640" height="480"></iframe>
 </body>
 </html>
 
