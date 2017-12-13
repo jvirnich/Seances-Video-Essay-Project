@@ -9,7 +9,18 @@
     </video>
 
     <script>
-        var introVideos = ["https://youtu.be/IBxeHj_jx_I", "http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_5mb.mp4"];
+        <div class = "youtube">
+            <iframe width="480" height="320" src="https://youtu.be/IBxeHj_jx_I?
+            ec=embedcode
+            &pbid=player_branding_id
+            &docUrl=http%3A%2F%2Fexample.com
+            &platform=platform
+            &options[optionname]=value&options[optionname]=value..."
+            frameborder="0" allowfullscreen>
+            </iframe>
+        </div>
+        
+        var introVideos = ["youtube", "http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_5mb.mp4"];
         swap(introVideos); 
         console.log(introVideos);
         var introVideo = introVideos[0]; 
